@@ -33,3 +33,25 @@
         </div>
     </div>
 </div>
+@section Scripts {
+<script>
+    $(".favorite").on("click", function() {
+          let elementA = $(this);    
+          let id = elementA.attr("id");   
+        $.post
+        ("/Zombie/Favorite", { "id": id }, 
+            function(data) {
+                console.log(data);   
+                if (data) {
+                elementA.removeClass("text-dark");
+                elementA.addClass("text-primary");
+                } 
+                else {
+                elementA.removeClass("text-primary");
+                elementA.addClass("text-dark");
+                }
+            }
+        );
+      });
+</script>
+}
